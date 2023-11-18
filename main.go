@@ -23,6 +23,7 @@ var (
 type Config struct {
 	Port       int
 	GameFolder string
+	Force      bool
 }
 
 type DirData struct {
@@ -83,7 +84,7 @@ func loadFolderData() {
 
 func checkHandler(w http.ResponseWriter, r *http.Request) {
 	etag := r.Header.Get("If-None-Match")
-	if etag == folderData.ChecksumHeader {
+	if !config.Force && etag == folderData.ChecksumHeader {
 		w.WriteHeader(304)
 		return
 	}
@@ -93,7 +94,7 @@ func checkHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	configPath := flag.String("config", "./patcher_config.json", "config file")
+	configPath := flag.String("config", "./patch_config.json", "config file")
 	flag.Parse()
 
 	loadConfig(*configPath)
