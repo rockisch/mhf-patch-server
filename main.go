@@ -57,7 +57,7 @@ func loadFolderData() {
 			}
 			log.Fatal(err)
 		}
-		if d.IsDir() {
+		if d.IsDir() || strings.HasSuffix(path, ".gitkeep") {
 			return nil
 		}
 		file, err := os.Open(path)

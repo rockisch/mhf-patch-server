@@ -1,2 +1,6 @@
-mhf-patcher.exe
-game/
+mhf-patch-server
+mhf-patch-server.exe
+deploy/
+
+game/*
+!game/.gitkeep
