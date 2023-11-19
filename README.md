@@ -8,14 +8,14 @@ The pupose of this patch server is to provide a way for MHF servers to distribut
 
 With this, it should be much easier to ensure users always get the latest translations, custom skins, game fixes, etc.
 
-## Running
+## Setup
 
-1. Put the `patch_config.json` and the executable in the same folder (or use `--config` to specify a custom config location).
-2. Update the `GameFolder` config to point to a folder containing the files you would like clients to sync to. This will most likely be an entire retail version of MHF with patches applied, but it could also be only a few files.
+1. Either clone the repo or extract [the latest release](https://github.com/rockisch/mhf-patch-server/releases/latest) into a folder.
+2. Put the files you want clients to check against inside the `game/` folder.
 3. Update the `SignV2.PatchServer` config on your [Erupe](https://github.com/ZeruLight/Erupe) server to point to the address the patch server will run on. For example: `https://10.20.30.40:8081`.
 4. Run the executable.
 
-When changing files inside `GameFolder`, the server needs to be restarted.
+When adding or modifying files inside `game/`, the server needs to be restarted.
 
 ## How does it work
 
